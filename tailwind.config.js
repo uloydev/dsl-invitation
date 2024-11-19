@@ -14,6 +14,7 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 rubik: ['Rubik', 'sans-serif'],
+                inter: ['Inter', 'sans-serif'],
             },
             colors: {
                 "dsl-blue": "#1500B2",
