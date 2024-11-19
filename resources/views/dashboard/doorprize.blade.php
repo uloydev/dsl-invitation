@@ -59,7 +59,7 @@
                     @for ($i = 0; $i < 4; $i++)
                         <div class="digit text-white">
                             <div data-rotation="-180" data-digit=""
-                                class="digit-inner relative h-full w-full font-bold text-pdam-dark-blue">
+                                class="digit-inner relative h-full w-full font-bold text-[#111698]">
                                 <div class="digit-front h-full w-full flex items-center justify-center active">
                                     0
                                 </div>
@@ -204,7 +204,7 @@
                         const digitEl = document.createElement("div");
                         digitEl.classList.add("digit", "text-white");
                         digitEl.innerHTML = `
-                            <div data-rotation="-180" data-digit="" class="digit-inner relative h-full w-full font-bold text-pdam-dark-blue">
+                            <div data-rotation="-180" data-digit="" class="digit-inner relative h-full w-full font-bold text-[#111698]">
                                 <div class="digit-front h-full w-full flex items-center justify-center active">0</div>
                                 <div class="digit-back h-full w-full absolute top-0 left-0  flex items-center justify-center">1</div>
                             </div>
@@ -216,7 +216,7 @@
                         const digitEl = document.createElement("div");
                         digitEl.classList.add("digit", "text-white");
                         digitEl.innerHTML = `
-                            <div data-rotation="-180" data-digit="" class="digit-inner relative h-full w-full font-bold text-pdam-dark-blue">
+                            <div data-rotation="-180" data-digit="" class="digit-inner relative h-full w-full font-bold text-[#111698]">
                                 <div class="digit-front h-full w-full flex items-center justify-center active">0</div>
                                 <div class="digit-back h-full w-full absolute top-0 left-0  flex items-center justify-center">1</div>
                             </div>

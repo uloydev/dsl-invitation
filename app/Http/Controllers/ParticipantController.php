@@ -121,7 +121,7 @@ class ParticipantController extends Controller
         return view('dashboard.participant', [
             'participants' => $participants,
             'pagination' => $pagination,
-            'title' => 'Peserta Pelanggan PDAM',
+            'title' => 'Peserta Pelanggan',
             'type' => 'customer',
         ]);
     }
@@ -165,10 +165,10 @@ class ParticipantController extends Controller
             'nik.min' => 'NIK minimal 16 karakter',
             'nik.max' => 'NIK maksimal 16 karakter',
             'nik.unique' => 'NIK sudah terdaftar sebagai peserta',
-            'customer_code.max' => 'Nomor Pelanggan PDAM maksimal 50 karakter',
-            'customer_code.exists' => 'Nomor Pelanggan PDAM tidak valid',
-            'customer_code.unique' => 'Nomor Pelanggan PDAM sudah pernah terdaftar sebagai peserta',
-            'customer_code.required_if' => 'Nomor Pelanggan PDAM harus diisi',
+            'customer_code.max' => 'Nomor Pelanggan maksimal 50 karakter',
+            'customer_code.exists' => 'Nomor Pelanggan tidak valid',
+            'customer_code.unique' => 'Nomor Pelanggan sudah pernah terdaftar sebagai peserta',
+            'customer_code.required_if' => 'Nomor Pelanggan harus diisi',
             'additional_participant.max' => 'Maksimal 2 peserta tambahan',
             'additional_participant.*.name.required' => 'Nama peserta tambahan harus diisi',
             'additional_participant.*.name.max' => 'Nama peserta tambahan maksimal 100 karakter',
