@@ -1,45 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden" id="main">
+    <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
         <div id="loadingBG" class="fixed z-30 top-0 h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
-        <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
-            class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
-        <div class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter">
-            <div id="headlineGroup"
-                class="flex-grow flex flex-col justify-between text-[2.4rem] font-bold opacity-0 transition-all duration-1000">
-                <div>
-                    <p>You Are Invited to</p>
-                    <p class="-mt-2">The Unbox Day</p>
-                    <span class="text-base bg-dsl-blue px-2 py-1"><span class="font-normal">Grand Opening</span> Department
-                        Sports Lab</span>
-                </div>
-            </div>
-            <div id="registerBtnGroup" class="transition-all duration-1000 opacity-0">
-                <div class="flex flex-col items-center">
-                    <span class="inline-block text-base font-bold bg-dsl-blue px-2 py-1 mx-auto">SATURDAY, 30 NOVEMBER 2024</span>
-                </div>
-                <div class="flex flex-col items-center text-xs mt-4">
-                    <p>FREE DTF EXPERIENCE - EXCLUSIVE PROMO GRAND OPENING</p>
-                    <p>REFRESHMENT - DOOR PRIZE - DJ PERFORMANCE</p>
-                </div>
-                <div class="flex gap-x-6 mt-12">
-
-                    <a onclick="window.scrollTo(0, document.body.scrollHeight);"
-                        class="flex-grow flex justify-center gap-x-3 text-lg items-center bg-dsl-blue py-5 rounded-full group hover:font-bold transition-all w-full">Unbox
-                        Your Potential <img src="/assets/icon/arrow.svg" alt="arrow"
-                            class="w-3 rotate-90 group-hover:w-4 transition-all" /></a>
-                    <a target="_blank" href="https://maps.app.goo.gl/3Xy8UNDd2qvwcWF37"
-                        class="rounded-full p-5 bg-white hover:bg-[#c6c6c6] flex items-center justify-center group"><img
-                            src="/assets/icon/map.svg" alt="arrow"
-                            class="w-8 group-hover:w-9 rotate-90 transition-all" /></a>
-                </div>
-            </div>
-
-        </div>
-        {{-- <div class="relative"> --}}
-        <div id="sliderContainer" class="fixed w-full max-w-lg h-full -z-10 bg-black top-0 left-0 lg:left-1/2 lg:-translate-x-1/2">
+        <div id="sliderContainer"
+            class="fixed w-full max-w-lg h-full -z-10 bg-black top-0 left-0 lg:left-1/2 lg:-translate-x-1/2">
             <img src="/assets/img/form-slide-1.png" alt="form slide 1"
                 class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
             <img src="/assets/img/form-slide-2.png" alt="form slide 2"
@@ -51,65 +17,108 @@
             <img src="/assets/img/form-slide-5.png" alt="form slide 5"
                 class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
         </div>
-        <div class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50"></div>
-        {{-- </div> --}}
-        <form id="rsvpForm" method="POST" action="/participant/register"
-            class="relative min-h-screen w-full transition-all duration-1000">
-            <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
-            @csrf()
-            @method('POST')
-            <div class="absolute w-full h-full z-20 px-8 flex flex-col justify-between pb-6">
-                <div class="flex justify-between py-8 ">
-                    <a onclick="window.scrollTo(0,0)">
-                        <img src="/assets/icon/arrow-left.svg" alt="back to landing" class="w-8 text-white">
-                    </a>
-                    <p class="text-right text-white font-bold text-3xl">The Unbox Day</p>
+
+
+        <div id="scrollContainer" class="snap-mandatory snap-y h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
+            <div id="main" class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter snap-center">
+                <div
+                    class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
-                <div class="flex-grow overflow-y-auto overflow-x-hidden">
-                    <div class="relative flex flex-col gap-y-8 items-center py-8">
-                        <div class="flex-grow w-full flex flex-col gap-y-8 px-2">
-                            <input type="text" name="name" placeholder="Enter your full name"
-                                class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
-                            <input type="email" name="email" placeholder="Enter your email"
-                                class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
-                            <input type="text" name="phone" placeholder="Enter your phone number"
-                                class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
-                            <button type="button" id="categoryBtn"
-                                class="block w-full py-6 rounded-2xl transition-all bg-white/10 border hover:border-2 border-[#ebebeb] hover:border-white text-white text-center">Category
-                                ?</button>
-                            <div id="categoryList"
-                                class="text-white px-4 bg-white/10 rounded-3xl border-[#ebebeb] text-center h-0 overflow-hidden transition-all duration-500">
-                                <div class="border-b border-[#ebebeb] py-4">
-                                    <label for="categoryCompany">Company</label>
-                                    <input class="hidden" type="radio" name="category" id="categoryCompany"
-                                        value="Company" />
+                <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
+                    class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
+                <div id="headlineGroup"
+                    class="flex-grow flex flex-col justify-between text-[2.4rem] font-bold opacity-0 transition-all duration-1000">
+                    <div>
+                        <p>You Are Invited to</p>
+                        <p class="-mt-2">The Unbox Day</p>
+                        <div class="-mt-3">
+                            <span class="inline-block text-base bg-dsl-blue px-2 py-1"><span class="font-normal">Grand
+                                    Opening</span> Department
+                                Sports Lab</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="registerBtnGroup" class="transition-all duration-1000 opacity-0">
+                    <div class="flex flex-col items-center">
+                        <span class="inline-block text-base font-bold bg-dsl-blue px-2 py-1 mx-auto">SATURDAY, 30 NOVEMBER
+                            2024</span>
+                    </div>
+                    <div class="flex flex-col items-center text-[.7rem] mt-4">
+                        <p>FREE DTF EXPERIENCE - EXCLUSIVE PROMO GRAND OPENING</p>
+                        <p>REFRESHMENT - DOOR PRIZE - DJ PERFORMANCE</p>
+                    </div>
+                    <div class="flex gap-x-6 mt-12">
+
+                        <a id="goToForm"
+                            class="flex-grow flex justify-center gap-x-3 text-lg items-center bg-dsl-blue py-5 rounded-full group hover:font-bold transition-all w-full">Unbox
+                            Your Potential <img src="/assets/icon/arrow.svg" alt="arrow"
+                                class="w-3 rotate-90 group-hover:w-4 transition-all" /></a>
+                        <a target="_blank" href="https://maps.app.goo.gl/3Xy8UNDd2qvwcWF37"
+                            class="rounded-full p-5 bg-white hover:bg-[#c6c6c6] flex items-center justify-center group"><img
+                                src="/assets/icon/map.svg" alt="arrow"
+                                class="w-8 group-hover:w-9 rotate-90 transition-all" /></a>
+                    </div>
+                </div>
+
+            </div>
+            <form id="rsvpForm" method="POST" action="/participant/register"
+                class="relative min-h-screen w-full transition-all duration-1000 snap-center">
+                <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
+                @csrf()
+                @method('POST')
+                <div class="absolute w-full h-full z-20 px-8 flex flex-col justify-between pb-6">
+                    <div class="flex justify-between py-8 ">
+                        <a id="goToMain">
+                            <img src="/assets/icon/arrow-left.svg" alt="back to landing" class="w-8 text-white">
+                        </a>
+                        <p class="text-right text-white font-bold text-3xl">The Unbox Day</p>
+                    </div>
+                    <div class="flex-grow overflow-y-auto overflow-x-hidden">
+                        <div class="relative flex flex-col gap-y-8 items-center py-8">
+                            <div class="flex-grow w-full flex flex-col gap-y-8 px-2">
+                                <input type="text" name="name" placeholder="Enter your full name"
+                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
+                                <input type="email" name="email" placeholder="Enter your email"
+                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
+                                <input type="text" name="phone" placeholder="Enter your phone number"
+                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
+                                <button type="button" id="categoryBtn"
+                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border hover:border-2 border-[#ebebeb] hover:border-white text-white text-center">Category
+                                    ?</button>
+                                <div id="categoryList"
+                                    class="text-white px-4 bg-white/10 rounded-3xl border-[#ebebeb] text-center h-0 overflow-hidden transition-all duration-500">
+                                    <div class="border-b border-[#ebebeb] py-4">
+                                        <label for="categoryCompany">Company</label>
+                                        <input class="hidden" type="radio" name="category" id="categoryCompany"
+                                            value="Company" />
+                                    </div>
+                                    <div class="border-b border-[#ebebeb] py-4">
+                                        <label for="categoryKOL">KOL</label>
+                                        <input class="hidden" type="radio" name="category" id="categoryKOL"
+                                            value="KOL" />
+                                    </div>
+                                    <div class="border-b border-[#ebebeb] py-4">
+                                        <label for="categoryFamily">Family and Friends</label>
+                                        <input class="hidden" type="radio" name="category" id="categoryFamily"
+                                            value="Family and Friend" />
+                                    </div>
+                                    <div class="py-4">
+                                        <label for="categoryOthers">Others</label>
+                                        <input class="hidden" type="radio" name="category" id="categoryOthers"
+                                            value="Others" />
+                                    </div>
                                 </div>
-                                <div class="border-b border-[#ebebeb] py-4">
-                                    <label for="categoryKOL">KOL</label>
-                                    <input class="hidden" type="radio" name="category" id="categoryKOL" value="KOL" />
-                                </div>
-                                <div class="border-b border-[#ebebeb] py-4">
-                                    <label for="categoryFamily">Family and Friends</label>
-                                    <input class="hidden" type="radio" name="category" id="categoryFamily"
-                                        value="Family and Friend" />
-                                </div>
-                                <div class="py-4">
-                                    <label for="categoryOthers">Others</label>
-                                    <input class="hidden" type="radio" name="category" id="categoryOthers"
-                                        value="Others" />
-                                </div>
+
                             </div>
 
                         </div>
-
                     </div>
+                    <button id="submitBtn" type="button"
+                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16">SUBMIT</button>
                 </div>
-                <button id="submitBtn" type="button"
-                    class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16">SUBMIT</button>
-            </div>
 
-        </form>
-
+            </form>
+        </div>
     </div>
 @endsection
 
@@ -124,6 +133,9 @@
         const categoryBtn = document.getElementById("categoryBtn");
         const submitBtn = document.getElementById("submitBtn");
         const categoryList = document.getElementById("categoryList");
+        const scrollContainer = document.getElementById("scrollContainer");
+        const goToMainBtn = document.getElementById("goToMain")
+        const goToFormBtn = document.getElementById("goToForm")
 
         const popup = Swal.mixin({
             customClass: {
@@ -143,6 +155,7 @@
         let formSliderIndex = 0;
 
         setTimeout(() => {
+            window.scrollTo(0, 0)
             logo.classList.add("opacity-100");
             setTimeout(() => {
                 logo.classList.remove("-translate-x-1/2", "-translate-y-1/2");
@@ -176,6 +189,24 @@
         }
 
         const token = document.querySelector('input[name="_token"]').value;
+
+        goToFormBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            scrollContainer.classList.toggle("snap-mandatory")
+            scrollContainer.classList.toggle("snap-y")
+            window.location.href = "#rsvpForm"
+            scrollContainer.classList.toggle("snap-mandatory")
+            scrollContainer.classList.toggle("snap-y")
+        })
+
+        goToMainBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            scrollContainer.classList.toggle("snap-mandatory")
+            scrollContainer.classList.toggle("snap-y")
+            window.location.href = "#main"
+            scrollContainer.classList.toggle("snap-mandatory")
+            scrollContainer.classList.toggle("snap-y")
+        })
 
         submitBtn.addEventListener("click", () => {
             const formData = new FormData(rsvpForm);
