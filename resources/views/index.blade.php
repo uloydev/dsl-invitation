@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto" id="main">
-        <div id="loadingBG" class="h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 absolute z-10"></div>
+        <div id="loadingBG" class="h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 fixed z-10"></div>
         <img src="/assets/img/main-bg.png" alt="main background" class="h-screen absolute -z-10">
         <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
             class="w-20 absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-10">
@@ -62,8 +62,8 @@
                     </a>
                     <p class="text-right text-white font-bold text-3xl">The Unbox Day</p>
                 </div>
-                <div class="flex-grow overflow-scroll">
-                    <div class="relative flex flex-col gap-y-8 items-center py-8 overflow-scroll">
+                <div class="flex-grow overflow-y-auto overflow-x-hidden">
+                    <div class="relative flex flex-col gap-y-8 items-center py-8">
                         <div class="flex-grow w-full flex flex-col gap-y-8 px-2">
                             <input type="text" name="name" placeholder="Enter your full name"
                                 class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
@@ -126,6 +126,11 @@
         const scrollingTextHighlight = document.getElementById("highlight");
         const scrollingTextLen = scrollingtexts.length - 2;
 
+        let initialAlert = {!! session('alert') ? json_encode(session('alert')) : 'null' !!};
+        if (initialAlert) {
+            Swal.fire(initialAlert);
+        }
+
 
         const formSliderLen = formSlider.length;
         let formSliderIndex = 0;
@@ -183,17 +188,16 @@
         }
 
         const token  = document.querySelector('input[name="_token"]').value;
-        for (var pair of (new FormData(rsvpForm)).entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
-
 
         submitBtn.addEventListener("click", () => {
+            const formData = new FormData(rsvpForm);
+            if (!formData.has("category")){
+                formData.set("category", null)
+            }
             fetch("/participant/register", {
-                body: new FormData(rsvpForm),
+                body: formData,
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "X-CSRF-Token": token,
+                    "Accept": "application/json",
                 },
                 method: "post",
             }).then((res) => {
@@ -204,8 +208,21 @@
                         imageUrl: "/assets/icon/check.svg",
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
+                    return null
                 } else {
-                    alert('gagal registrasi');
+                    return res.json()
+                }
+            }).then((data) => {
+                console.log(data)
+                if (data) {
+                    popup.fire({
+                        title: '<span class="font-inter font-bold text-[#040404]">Oops!</span>',
+                        html: `<ul class="text-left text-red-500 list-disc p-4 flex flex-col gap-y-2 text-lg rounded-lg bg-red-200">
+                            ${Object.keys(data.errors).map(key => '<li class="mx-4">'+data.errors[key].join(',')+'</li>').join('')}
+                        </ul>`,
+                        icon: 'error',
+                        confirmButtonText: `<span class="font-inter">Close</span>`
+                    });
                 }
             })
         })

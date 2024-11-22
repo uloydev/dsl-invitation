@@ -156,8 +156,6 @@ class ParticipantController extends Controller
             'category.required' => 'Harap masukkan Kategori',
         ]);
 
-        return $data;
-
         // token with uuid
         $data['token'] = Str::uuid();
 
