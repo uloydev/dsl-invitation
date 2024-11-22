@@ -2,62 +2,64 @@
 
 @section('content')
     <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto" id="main">
-        <div id="loadingBG" class="h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 fixed z-10"></div>
-        <img src="/assets/img/main-bg.png" alt="main background" class="h-screen absolute -z-10">
+        <div id="loadingBG" class="fixed z-30 top-0 h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
+        </div>
         <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
-            class="w-20 absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-10">
-        <div class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-12 font-inter">
+            class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
+        <div class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter">
             <div id="headlineGroup"
                 class="flex-grow flex flex-col justify-between text-[2.4rem] font-bold opacity-0 transition-all duration-1000">
                 <div>
                     <p>You Are Invited to</p>
                     <p class="-mt-2">The Unbox Day</p>
-                    <p class="text-base"><span class="font-normal">Grand Opening</span> Department Sports Lab</p>
-                </div>
-                <div class="relative text-3xl h-[7.5rem] mb-12 overflow-hidden">
-                    <div id="highlight"
-                        class="bg-dsl-blue h-10 w-full absolute top-1/2 left-0 -translate-y-1/2 transition-all duration-1000 z-10">
-                    </div>
-                    <div id="scrollingTextWrapper"
-                        class="absolute z-30 top-0 left-0 text-white/50 transition-all duration-1000">
-                        <p class="h-10"></p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10 text-white">Nov 30, 2024</p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10">Free DTF Experience</p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10">Exclusive Promo</p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10">Refreshment</p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10">Live DJ Performance</p>
-                        <p class="inline-block transition-all duration-1000 px-2 h-10">Door Prize</p>
-                        <p class="h-10"></p>
-                    </div>
+                    <span class="text-base bg-dsl-blue px-2 py-1"><span class="font-normal">Grand Opening</span> Department
+                        Sports Lab</span>
                 </div>
             </div>
             <div id="registerBtnGroup" class="transition-all duration-1000 opacity-0">
-                <a target="_blank" href="https://maps.app.goo.gl/3Xy8UNDd2qvwcWF37"
-                    class="flex justify-center gap-x-4 text-lg items-center bg-dsl-blue py-5 rounded-full hover:font-bold transition-all w-full">Get
-                    Direction? <img src="/assets/icon/arrow.svg" alt="arrow" class="w-3" /></a>
+                <div class="flex flex-col items-center">
+                    <span class="inline-block text-base font-bold bg-dsl-blue px-2 py-1 mx-auto">SATURDAY, 30 NOVEMBER 2024</span>
+                </div>
+                <div class="flex flex-col items-center text-xs mt-4">
+                    <p>FREE DTF EXPERIENCE - EXCLUSIVE PROMO GRAND OPENING</p>
+                    <p>REFRESHMENT - DOOR PRIZE - DJ PERFORMANCE</p>
+                </div>
+                <div class="flex gap-x-6 mt-12">
+
+                    <a onclick="window.scrollTo(0, document.body.scrollHeight);"
+                        class="flex-grow flex justify-center gap-x-3 text-lg items-center bg-dsl-blue py-5 rounded-full group hover:font-bold transition-all w-full">Unbox
+                        Your Potential <img src="/assets/icon/arrow.svg" alt="arrow"
+                            class="w-3 rotate-90 group-hover:w-4 transition-all" /></a>
+                    <a target="_blank" href="https://maps.app.goo.gl/3Xy8UNDd2qvwcWF37"
+                        class="rounded-full p-5 bg-white hover:bg-[#c6c6c6] flex items-center justify-center group"><img
+                            src="/assets/icon/map.svg" alt="arrow"
+                            class="w-8 group-hover:w-9 rotate-90 transition-all" /></a>
+                </div>
             </div>
 
         </div>
+        {{-- <div class="relative"> --}}
+        <div id="sliderContainer" class="fixed w-full h-full -z-10 bg-black top-0 left-0">
+            <img src="/assets/img/form-slide-1.png" alt="form slide 1"
+                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            <img src="/assets/img/form-slide-2.png" alt="form slide 2"
+                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            <img src="/assets/img/form-slide-3.png" alt="form slide 3"
+                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            <img src="/assets/img/form-slide-4.png" alt="form slide 4"
+                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            <img src="/assets/img/form-slide-5.png" alt="form slide 5"
+                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+        </div>
+        <div class="fixed w-full h-full -z-10 bg-black/50 left-0 top-0"></div>
+        {{-- </div> --}}
         <form id="rsvpForm" method="POST" action="/participant/register"
             class="relative min-h-screen w-full transition-all duration-1000">
-            <div id="formSliderContainer" class="absolute w-full h-full z-10 bg-black">
-                <img src="/assets/img/form-slide-1.png" alt="form slide 1"
-                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-                <img src="/assets/img/form-slide-2.png" alt="form slide 2"
-                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-                <img src="/assets/img/form-slide-3.png" alt="form slide 3"
-                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-                <img src="/assets/img/form-slide-4.png" alt="form slide 4"
-                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-                <img src="/assets/img/form-slide-5.png" alt="form slide 5"
-                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-            </div>
-            <div class="absolute w-full h-full z-10 bg-black/50"></div>
             @csrf()
             @method('POST')
             <div class="absolute w-full h-full z-20 px-8 flex flex-col justify-between pb-6">
                 <div class="flex justify-between py-8 ">
-                    <a href="#main">
+                    <a onclick="window.scrollTo(0,0)">
                         <img src="/assets/icon/arrow-left.svg" alt="back to landing" class="w-8 text-white">
                     </a>
                     <p class="text-right text-white font-bold text-3xl">The Unbox Day</p>
@@ -117,14 +119,10 @@
         const headlineGroup = document.getElementById("headlineGroup");
         const registerBtnGroup = document.getElementById("registerBtnGroup");
         const rsvpForm = document.getElementById("rsvpForm");
-        const formSlider = document.querySelectorAll("#formSliderContainer img");
+        const formSlider = document.querySelectorAll("#sliderContainer img");
         const categoryBtn = document.getElementById("categoryBtn");
         const submitBtn = document.getElementById("submitBtn");
         const categoryList = document.getElementById("categoryList");
-        const scrollingtextWrapper = document.getElementById("scrollingTextWrapper")
-        const scrollingtexts = scrollingtextWrapper.querySelectorAll("p")
-        const scrollingTextHighlight = document.getElementById("highlight");
-        const scrollingTextLen = scrollingtexts.length - 2;
 
         let initialAlert = {!! session('alert') ? json_encode(session('alert')) : 'null' !!};
         if (initialAlert) {
@@ -139,25 +137,14 @@
             logo.classList.add("opacity-100");
             setTimeout(() => {
                 logo.classList.remove("-translate-x-1/2", "-translate-y-1/2");
-                logo.classList.replace("top-1/4", "top-8");
+                logo.classList.replace("top-1/2", "top-8");
                 logo.classList.replace("left-1/2", "left-8");
                 loadingBG.classList.add("opacity-0");
                 setTimeout(() => {
+                    logo.classList.replace("fixed", "absolute");
                     loadingBG.remove();
                     registerBtnGroup.classList.remove("opacity-0");
                     headlineGroup.classList.remove("opacity-0");
-                    scrollingTextHighlight.style.width = scrollingtexts[1].getBoundingClientRect()
-                        .width + "px"
-                    for (let i = 2; i <= scrollingTextLen; i++) {
-                        setTimeout(() => {
-                            scrollingtextWrapper.style.top = "-" + (((i - 1) * 2.5)) +
-                                "rem";
-                            scrollingtexts[i - 1].classList.remove("text-white")
-                            scrollingtexts[i].classList.add("text-white")
-                            scrollingTextHighlight.style.width = scrollingtexts[i]
-                                .getBoundingClientRect().width + "px"
-                        }, 2000 * (i - 1))
-                    }
                 }, 1000);
             }, 2000);
         }, 1000);
@@ -187,11 +174,11 @@
             categoryList.classList.toggle("h-0")
         }
 
-        const token  = document.querySelector('input[name="_token"]').value;
+        const token = document.querySelector('input[name="_token"]').value;
 
         submitBtn.addEventListener("click", () => {
             const formData = new FormData(rsvpForm);
-            if (!formData.has("category")){
+            if (!formData.has("category")) {
                 formData.set("category", null)
             }
             fetch("/participant/register", {
@@ -208,6 +195,7 @@
                         imageUrl: "/assets/icon/check.svg",
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
+                    rsvpForm.reset();
                     return null
                 } else {
                     return res.json()
