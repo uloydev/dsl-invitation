@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('email', 100)->unique();
             $table->string('name', 100);
             $table->string('phone', 20);
-            $table->string('nik', 20);
-            $table->string('customer_code', 50)->nullable();
+            $table->string('category', 50);
             $table->dateTime('email_verified_at')->nullable();
-            $table->json('additional_participant')->nullable();
+            $table->string('token', 50)->nullable();
             $table->timestamps();
         });
     }

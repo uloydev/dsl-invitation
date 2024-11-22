@@ -11,9 +11,9 @@ Route::get('/', function () {
     ]);
 })->name('index');
 
-Route::get('/anima', function () {
-    return view('anima');
-})->name('anima');
+// Route::get('/anima', function () {
+//     return view('anima');
+// })->name('anima');
 
 Route::name('participant.')->prefix('participant')->controller(ParticipantController::class)->group(function () {
     Route::post('/register', 'store')->name('register');
@@ -25,25 +25,25 @@ Route::name('participant.')->prefix('participant')->controller(ParticipantContro
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->controller(DashboardController::class)->group(function () {
     Route::get('/', 'index')->name('index');
 
-    Route::get('/customer', 'customerIndex')->name('customer.index');
+    // Route::get('/customer', 'customerIndex')->name('customer.index');
 
     Route::prefix('participant')->name('participant.')->controller(ParticipantController::class)->group(function () {
-        Route::get('/public', 'public')->name('public');
-        Route::get('/customer', 'customer')->name('customer');
-        Route::post('/{participant}/pickup-kit', 'pickupKit')->name('pickup-kit');
-        Route::post('/{participant}/checkin', 'checkin')->name('checkin');
+        Route::get('/', 'index')->name('index');
+        // Route::get('/customer', 'customer')->name('customer');
+        // Route::post('/{participant}/pickup-kit', 'pickupKit')->name('pickup-kit');
+        // Route::post('/{participant}/checkin', 'checkin')->name('checkin');
     });
 
-    Route::get('/shirt', 'shirtIndex')->name('shirt.index');
+    // Route::get('/shirt', 'shirtIndex')->name('shirt.index');
 
 });
-Route::prefix('doorprize')->name('doorprize.')->middleware('auth')->controller(DashboardController::class)->group(function () {
-    Route::get('/', 'doorprize')->name('index');
-    Route::get('/spin', 'doorprizeSpin')->name('spin');
-    Route::get('/{prize}/winner', 'doorprizeWinner')->name('winner');
-    Route::get('/winner/{prizeWinner}/remove', 'doorprizeDelete')->name('remove-winner');
+// Route::prefix('doorprize')->name('doorprize.')->middleware('auth')->controller(DashboardController::class)->group(function () {
+//     Route::get('/', 'doorprize')->name('index');
+//     Route::get('/spin', 'doorprizeSpin')->name('spin');
+//     Route::get('/{prize}/winner', 'doorprizeWinner')->name('winner');
+//     Route::get('/winner/{prizeWinner}/remove', 'doorprizeDelete')->name('remove-winner');
 
-});
+// });
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

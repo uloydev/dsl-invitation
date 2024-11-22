@@ -18,7 +18,8 @@ export default {
             },
             colors: {
                 "dsl-blue": "#1500B2",
-                "dsl-secondary": "#F4F4F4"
+                "dsl-secondary": "#F4F4F4",
+                "dsl-grey": "#cdcdcd",
             },
             transitionDuration: {
                 3000: '3000ms',

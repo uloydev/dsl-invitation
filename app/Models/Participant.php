@@ -14,22 +14,13 @@ class Participant extends Model
         'name',
         'email',
         'phone',
-        'nik',
-        'customer_code',
+        'category',
         'email_verified_at',
         'token',
-        'additional_participant',
-        'shirt_stock_id',
-        'checkin_at',
-        'kit_received_at',
-        'instagram',
     ];
 
     protected $casts = [
-        'additional_participant' => 'array',
         'email_verified_at' => 'datetime',
-        'checkin_at' => 'datetime',
-        'kit_received_at' => 'datetime',
     ];
 
     protected $hidden = [
@@ -59,26 +50,6 @@ class Participant extends Model
     //     // format from utc to gmt+7 using Carbon
     //     return $this->attributes['kit_received_at'] ? Carbon::parse($this->attributes['kit_received_at'])->addHours(7) : null;
     // }
-
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class, 'customer_code', 'customer_code');
-    }
-
-    public function isCustomer(): bool
-    {
-        return $this->customer_code !== null;
-    }
-
-    public function shirtStock()
-    {
-        return $this->belongsTo(ShirtStock::class);
-    }
-
-    public function additionalCount(): int
-    {
-        return count($this->additional_participant);
-    }
 
     public function getVerificationLink(): string
     {

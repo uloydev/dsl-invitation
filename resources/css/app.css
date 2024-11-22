@@ -14,3 +14,15 @@
 input:-webkit-autofill:focus {
     @apply !border-dsl-blue;
 } */
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.swal2-actions{
+    @apply w-full block px-8 font-inter font-normal;
+}
+
+.swal2-confirm {
+    @apply py-4 bg-dsl-blue;
+}
