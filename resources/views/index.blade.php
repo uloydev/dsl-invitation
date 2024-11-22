@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto" id="main">
+    <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden" id="main">
         <div id="loadingBG" class="fixed z-30 top-0 h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
         <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
@@ -39,7 +39,7 @@
 
         </div>
         {{-- <div class="relative"> --}}
-        <div id="sliderContainer" class="fixed w-full h-full -z-10 bg-black top-0 left-0">
+        <div id="sliderContainer" class="fixed w-full max-w-lg h-full -z-10 bg-black top-0 left-0 lg:left-1/2 lg:-translate-x-1/2">
             <img src="/assets/img/form-slide-1.png" alt="form slide 1"
                 class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
             <img src="/assets/img/form-slide-2.png" alt="form slide 2"
@@ -51,10 +51,11 @@
             <img src="/assets/img/form-slide-5.png" alt="form slide 5"
                 class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
         </div>
-        <div class="fixed w-full h-full -z-10 bg-black/50 left-0 top-0"></div>
+        <div class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50"></div>
         {{-- </div> --}}
         <form id="rsvpForm" method="POST" action="/participant/register"
             class="relative min-h-screen w-full transition-all duration-1000">
+            <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
             @csrf()
             @method('POST')
             <div class="absolute w-full h-full z-20 px-8 flex flex-col justify-between pb-6">
@@ -124,9 +125,17 @@
         const submitBtn = document.getElementById("submitBtn");
         const categoryList = document.getElementById("categoryList");
 
+        const popup = Swal.mixin({
+            customClass: {
+                confirmButton: "block w-full rounded-full",
+                popup: "rounded-[2rem]",
+                image: "w-32 mx-auto pt-8"
+            }
+        })
+
         let initialAlert = {!! session('alert') ? json_encode(session('alert')) : 'null' !!};
         if (initialAlert) {
-            Swal.fire(initialAlert);
+            popup.fire(initialAlert);
         }
 
 
@@ -155,14 +164,6 @@
             formSliderIndex = (formSliderIndex + 1) % formSliderLen;
             formSlider[formSliderIndex].classList.toggle("opacity-0")
         }, 3000);
-
-        const popup = Swal.mixin({
-            customClass: {
-                confirmButton: "block w-full rounded-full",
-                popup: "rounded-[2rem]",
-                image: "w-32 mx-auto pt-8"
-            }
-        })
 
         const onSelectCategory = (e) => {
             categoryBtn.innerText = e.target.innerText;
@@ -201,7 +202,6 @@
                     return res.json()
                 }
             }).then((data) => {
-                console.log(data)
                 if (data) {
                     popup.fire({
                         title: '<span class="font-inter font-bold text-[#040404]">Oops!</span>',

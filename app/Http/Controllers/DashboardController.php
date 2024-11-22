@@ -15,49 +15,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $customerStock = DB::table(DB::raw('shirt_stocks s'))
-            ->leftJoin(DB::raw('participants p'), function ($join) {
-                $join->on(DB::raw('s.id'), '=', DB::raw('p.shirt_stock_id'));
-                $join->on(DB::raw('p.email_verified_at'), 'is not', DB::raw('NULL'));
-                $join->on(DB::raw('p.customer_code'), 'is not', DB::raw('NULL'));
-            })
-            ->select(
-                DB::raw('max(s.size) as size'),
-                DB::raw('count(p.id) as used_stock'),
-                DB::raw('max(s.stock) as remaining_stock'),
-                DB::raw('count(p.id)+max(s.stock) as total_stock'),
-            )
-            ->where(DB::raw('s.type'), 'customer')
-            ->groupBy(DB::raw('s.id'))
-            ->get();
-
-        $publicStock = DB::table(DB::raw('shirt_stocks s'))
-            ->leftJoin(DB::raw('participants p'), function ($join) {
-                $join->on(DB::raw('s.id'), '=', DB::raw('p.shirt_stock_id'));
-                $join->on(DB::raw('p.email_verified_at'), 'is not', DB::raw('NULL'));
-                $join->on(DB::raw('p.customer_code'), 'is', DB::raw('NULL'));
-            })
-            ->select(
-                DB::raw('max(s.size) as size'),
-                DB::raw('count(p.id) as used_stock'),
-                DB::raw('max(s.stock) as remaining_stock'),
-                DB::raw('count(p.id)+max(s.stock) as total_stock'),
-            )
-            ->where(DB::raw('s.type'), 'public')
-            ->groupBy(DB::raw('s.id'))
-            ->get();
-
         return view('dashboard.index', [
-            'customerParticipant' => Participant::whereNotNull('email_verified_at')->whereNotNull('customer_code')->count(),
-            'publicParticipant' => Participant::whereNotNull('email_verified_at')->whereNull('customer_code')->count(),
-            'customerQuota' => ShirtStock::where('type', 'customer')->sum('stock'),
-            'publicQuota' => ShirtStock::where('type', 'public')->sum('stock'),
-            'customerStock' => $customerStock,
-            'publicStock' => $publicStock,
-            'customerKitsTaken' => Participant::whereNotNull('email_verified_at')->whereNotNull('customer_code')->whereNotNull('kit_received_at')->count(),
-            'publicKitsTaken' => Participant::whereNotNull('email_verified_at')->whereNull('customer_code')->whereNotNull('kit_received_at')->count(),
-            'customerCheckin' => Participant::whereNotNull('email_verified_at')->whereNotNull('customer_code')->whereNotNull('checkin_at')->count(),
-            'publicCheckin' => Participant::whereNotNull('email_verified_at')->whereNull('customer_code')->whereNotNull('checkin_at')->count(),
+            'submissionTotal' => Participant::count(),
+            'verifiedParticipant' => Participant::whereNotNull('email_verified_at')->count(),
+            'unverifiedParticipant' => Participant::whereNull('email_verified_at')->count(),
         ]);
     }
 

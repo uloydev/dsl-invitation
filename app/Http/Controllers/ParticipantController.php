@@ -18,7 +18,7 @@ class ParticipantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function public(Request $req)
+    public function index(Request $req)
     {
         $pagination = $req->validate([
             'page' => 'nullable|integer|min:1',
@@ -31,11 +31,9 @@ class ParticipantController extends Controller
         $pagination['page'] = $pagination['page'] ?? 1;
         $pagination['per_page'] = $pagination['per_page'] ?? 10;
 
-        $query = Participant::with('shirtStock')
-            ->whereNull('customer_code')
-            ->whereNotNull('email_verified_at');
+        $query = Participant::query();
         if (isset($pagination['search']) && $pagination['search']) {
-            $query->where('name', 'like', "%{$pagination['search']}%");
+            $query->where('name', 'like', "%{$pagination['search']}%")->orWhere('email', 'like', "%{$pagination['search']}%");
         } else {
             $pagination['search'] = '';
         }
@@ -68,8 +66,7 @@ class ParticipantController extends Controller
         return view('dashboard.participant', [
             'participants' => $participants,
             'pagination' => $pagination,
-            'title' => 'Peserta Umum',
-            'type' => 'public',
+            'title' => 'Participants',
         ]);
     }
 

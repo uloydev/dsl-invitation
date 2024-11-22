@@ -25,13 +25,13 @@
         <div class="h-19">
             <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden"
                 sidenav-close></i>
-            <a class="w-full px-4 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700 flex justify-between items-center"
+            <a class="w-full px-6 py-6 m-0 text-sm whitespace-nowrap text-white bg-[#5e72e4]/60 flex justify-between items-center"
                 href="{{ route('dashboard.index') }}" target="_blank">
-                <img src="{{ asset('assets/img/logo.png') }}"
+                <img src="{{ asset('assets/img/logo.svg') }}"
                     class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-6"
                     alt="main_logo" />
                 <span
-                    class="ml-1 font-semibold transition-all duration-200 ease-nav-brand inline-block text-center text-base">DSL Invitation</span>
+                    class="ml-1 font-semibold transition-all duration-200 ease-nav-brand inline-block text-center text-base">DSL RSVP</span>
             </a>
         </div>
 
@@ -51,16 +51,16 @@
                     </a>
                 </li>
                 <li class="mt-0.5 w-full">
-                    <a class="nav-link py-2.7 dark:text-white dark:opacity-80 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors {{ Route::currentRouteName() == 'dashboard.participant.public' ? 'active' : '' }}"
-                        href="{{ route('dashboard.participant.public') }}">
+                    <a class="nav-link py-2.7 dark:text-white dark:opacity-80 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors {{ Route::currentRouteName() == 'dashboard.participant.index' ? 'active' : '' }}"
+                        href="{{ route('dashboard.participant.index') }}">
                         <div
                             class="mr-2 flex h-12 w-12 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                             <i class="relative top-0 leading-normal bx bxs-user text-xl"></i>
                         </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Peserta Umum</span>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Participant</span>
                     </a>
                 </li>
-                <li class="mt-0.5 w-full">
+                {{-- <li class="mt-0.5 w-full">
                     <a class="nav-link py-2.7 dark:text-white dark:opacity-80 ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors {{ Route::currentRouteName() == 'dashboard.participant.customer' ? 'active' : '' }}"
                         href="{{ route('dashboard.participant.customer') }}">
                         <div
@@ -89,7 +89,7 @@
                         </div>
                         <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Shirt Stock</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <div class="px-4">
