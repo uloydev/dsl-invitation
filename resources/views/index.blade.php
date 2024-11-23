@@ -35,12 +35,12 @@
                         </div>
                     </div>
                 </div>
-                <div id="registerBtnGroup" class="transition-all duration-1000 opacity-0">
+                <div id="registerBtnGroup" class="transition-all duration-1000 opacity-0 pb-10">
                     <div class="flex flex-col items-center">
                         <span class="inline-block text-base font-bold bg-dsl-blue px-2 py-1 mx-auto">SATURDAY, 30 NOVEMBER
                             2024</span>
                     </div>
-                    <div class="flex flex-col items-center text-[.7rem] mt-4">
+                    <div class="flex flex-col items-center text-[.6rem] mt-4">
                         <p>FREE DTF EXPERIENCE - EXCLUSIVE PROMO GRAND OPENING</p>
                         <p>REFRESHMENT - DOOR PRIZE - DJ PERFORMANCE</p>
                     </div>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <button id="submitBtn" type="button"
-                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16">SUBMIT</button>
+                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-16">SUBMIT</button>
                 </div>
             </form>
             <div id="timeline"
@@ -125,12 +125,12 @@
                     RUNDOWN
                 </p>
                 <div class="flex-grow h-full flex items-center">
-                    <div id="timelineImg" class="h-full opacity-0 overflow-hidden transition-all duration-1000">
+                    <div id="timelineImg" class="h-full overflow-hidden transition-all duration-1000">
                         <img src="/assets/img/timeline.png" alt="timeline"
                             class="w-full object-center aspect-[9/16] px-4">
                     </div>
                 </div>
-                <a href="https://department.co.id" target="_blank">Department.co.id</p>
+                <a href="https://department.co.id" target="_blank" class="mb-16">Department.co.id</p>
 
             </div>
         </div>
@@ -222,17 +222,17 @@
 
         const token = document.querySelector('input[name="_token"]').value;
 
-        const timelineInterval = setInterval(() => {
-            console.log("interval");
-            if (isElementInViewport(timeline) && timelineImg.classList.contains("opacity-0")) {
-                console.log("masuk");
-                timelineImg.classList.remove("opacity-0");
-                setTimeout(() => {
-                    console.log("timeout");
-                    clearInterval(timelineInterval);
-                }, 1000)
-            }
-        }, 100)
+        // const timelineInterval = setInterval(() => {
+        //     console.log("interval");
+        //     if (isElementInViewport(timeline) && timelineImg.classList.contains("opacity-0")) {
+        //         console.log("masuk");
+        //         timelineImg.classList.remove("opacity-0");
+        //         setTimeout(() => {
+        //             console.log("timeout");
+        //             clearInterval(timelineInterval);
+        //         }, 1000)
+        //     }
+        // }, 100)
 
         goToFormBtn.addEventListener("click", (e) => {
             e.preventDefault();
