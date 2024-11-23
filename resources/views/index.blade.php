@@ -15,7 +15,7 @@
 
         <div id="scrollContainer" class="snap-mandatory snap-y h-[100svh] max-h-[100svh] w-screen max-w-lg overflow-y-auto overflow-x-hidden">
             <div id="main"
-                class="flex flex-col relative min-h-[100svh] w-full pt-20 pb-20 text-white px-8 font-inter snap-start">
+                class="flex flex-col relative min-h-[100svh] w-full pt-20 text-white px-8 font-inter snap-start">
                 <div
                     class="absolute w-full h-[100svh] max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <button id="submitBtn" type="button"
-                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-24">SUBMIT</button>
+                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-4">SUBMIT</button>
                 </div>
             </form>
             <div id="timeline"
@@ -125,12 +125,12 @@
                     RUNDOWN
                 </p>
                 <div class="flex-grow h-full flex items-center">
-                    <div id="timelineImg" class="h-full overflow-hidden transition-all duration-1000 px-8">
+                    <div id="timelineImg" class="overflow-hidden transition-all duration-1000 px-8 h-[90%]">
                         <img src="/assets/img/timeline.png" alt="timeline"
                             class="w-full object-center aspect-[9/16]">
                     </div>
                 </div>
-                <a href="https://department.co.id" target="_blank" class="mb-24">Department.co.id</p>
+                <a href="https://department.co.id" target="_blank" class="mb-4">Department.co.id</p>
 
             </div>
         </div>
