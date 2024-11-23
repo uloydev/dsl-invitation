@@ -6,21 +6,16 @@
         </div>
         <div id="sliderContainer"
             class="fixed w-full max-w-lg h-full -z-10 bg-black top-0 left-0 lg:left-1/2 lg:-translate-x-1/2">
-            <img src="/assets/img/form-slide-1.png" alt="form slide 1"
-                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-            <img src="/assets/img/form-slide-2.png" alt="form slide 2"
-                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-            <img src="/assets/img/form-slide-3.png" alt="form slide 3"
-                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-            <img src="/assets/img/form-slide-4.png" alt="form slide 4"
-                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
-            <img src="/assets/img/form-slide-5.png" alt="form slide 5"
-                class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            @for ($i = 1; $i <= 6; $i++)
+                <img src="/assets/img/form-slide-{{ $i }}.png" alt="form slide {{ $i }}"
+                    class="absolute top-0 left-0 h-full object-cover object-center opacity-0 transition-all duration-1000">
+            @endfor
         </div>
 
 
         <div id="scrollContainer" class="snap-mandatory snap-y h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
-            <div id="main" class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter snap-center">
+            <div id="main"
+                class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter snap-center">
                 <div
                     class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
@@ -116,8 +111,22 @@
                     <button id="submitBtn" type="button"
                         class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16">SUBMIT</button>
                 </div>
-
             </form>
+            <div id="timeline"
+                class="min-h-screen w-full snap-center flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
+                <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
+                <p class="font-bold text-4xl">
+                    RUNDOWN
+                </p>
+                <div class="flex-grow h-full flex items-center">
+                    <div id="timelineImg"  class="h-full opacity-0 overflow-hidden transition-all duration-1000">
+                         <img src="/assets/img/timeline.png" alt="timeline"
+                        class="w-full object-center aspect-[9/16] px-4">
+                    </div>
+                </div>
+                <a href="https://department.co.id" target="_blank">Department.co.id</p>
+
+            </div>
         </div>
     </div>
 @endsection
@@ -136,6 +145,8 @@
         const scrollContainer = document.getElementById("scrollContainer");
         const goToMainBtn = document.getElementById("goToMain")
         const goToFormBtn = document.getElementById("goToForm")
+        const timeline = document.getElementById("timeline");
+        const timelineImg = document.getElementById("timelineImg");
 
         const popup = Swal.mixin({
             customClass: {
@@ -188,7 +199,27 @@
             categoryList.classList.toggle("h-0")
         }
 
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                /* or $(window).height() */
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+            );
+        }
+
+
         const token = document.querySelector('input[name="_token"]').value;
+
+        const timelineInterval = setInterval(() => {
+            if (isElementInViewport(timeline)) {
+                console.log(timelineImg);
+                timelineImg.classList.remove("opacity-0");
+                clearInterval(timelineInterval);
+            }
+        }, 100)
 
         goToFormBtn.addEventListener("click", (e) => {
             e.preventDefault();
