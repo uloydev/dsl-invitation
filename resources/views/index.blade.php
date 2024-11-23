@@ -15,7 +15,7 @@
 
         <div id="scrollContainer" class="snap-mandatory snap-y h-screen max-h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
             <div id="main"
-                class="flex flex-col relative min-h-screen w-full pt-20 pb-20 text-white px-8 font-inter snap-center">
+                class="flex flex-col relative min-h-screen w-full pt-20 pb-20 text-white px-8 font-inter snap-start">
                 <div
                     class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
@@ -59,7 +59,7 @@
 
             </div>
             <form id="rsvpForm" method="POST" action="/participant/register"
-                class="relative min-h-screen w-full transition-all duration-1000 snap-center">
+                class="relative min-h-screen w-full transition-all duration-1000 snap-start">
                 <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
                 @csrf()
                 @method('POST')
@@ -119,7 +119,7 @@
                 </div>
             </form>
             <div id="timeline"
-                class="min-h-screen w-full snap-center flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
+                class="min-h-screen w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
                 <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
                 <p class="font-bold text-4xl mt-4">
                     RUNDOWN
