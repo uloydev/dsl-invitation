@@ -29,7 +29,7 @@
                         <p>You Are Invited to</p>
                         <p class="-mt-2">The Unbox Day</p>
                         <div class="-mt-3">
-                            <span class="inline-block text-base bg-dsl-blue px-2 py-1"><span class="font-normal">Grand
+                            <span class="inline-block text-sm bg-dsl-blue px-2 py-1"><span class="font-normal">Grand
                                     Opening of</span> Department
                                 Sports Lab</span>
                         </div>
@@ -223,9 +223,14 @@
         const token = document.querySelector('input[name="_token"]').value;
 
         const timelineInterval = setInterval(() => {
-            if (isElementInViewport(timeline)) {
+            console.log("interval");
+            if (isElementInViewport(timeline) && timelineImg.classList.contains("opacity-0")) {
+                console.log("masuk");
                 timelineImg.classList.remove("opacity-0");
-                clearInterval(timelineInterval);
+                setTimeout(() => {
+                    console.log("timeout");
+                    clearInterval(timelineInterval);
+                }, 1000)
             }
         }, 100)
 
