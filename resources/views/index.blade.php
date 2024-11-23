@@ -13,9 +13,9 @@
         </div>
 
 
-        <div id="scrollContainer" class="snap-mandatory snap-y h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
+        <div id="scrollContainer" class="snap-mandatory snap-y h-screen max-h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
             <div id="main"
-                class="flex flex-col relative min-h-screen w-full pt-28 pb-12 text-white px-8 font-inter snap-center">
+                class="flex flex-col relative min-h-screen w-full pt-20 pb-16 text-white px-8 font-inter snap-center">
                 <div
                     class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
@@ -115,22 +115,22 @@
                         </div>
                     </div>
                     <button id="submitBtn" type="button"
-                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-16">SUBMIT</button>
+                        class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-20">SUBMIT</button>
                 </div>
             </form>
             <div id="timeline"
                 class="min-h-screen w-full snap-center flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
                 <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
-                <p class="font-bold text-4xl">
+                <p class="font-bold text-4xl mt-4">
                     RUNDOWN
                 </p>
                 <div class="flex-grow h-full flex items-center">
-                    <div id="timelineImg" class="h-full overflow-hidden transition-all duration-1000">
+                    <div id="timelineImg" class="h-full overflow-hidden transition-all duration-1000 px-8">
                         <img src="/assets/img/timeline.png" alt="timeline"
-                            class="w-full object-center aspect-[9/16] px-4">
+                            class="w-full object-center aspect-[9/16]">
                     </div>
                 </div>
-                <a href="https://department.co.id" target="_blank" class="mb-16">Department.co.id</p>
+                <a href="https://department.co.id" target="_blank" class="mb-20">Department.co.id</p>
 
             </div>
         </div>
