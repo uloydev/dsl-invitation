@@ -253,6 +253,7 @@
         })
 
         submitBtn.addEventListener("click", () => {
+            submitBtn.disabled= true;
             const formData = new FormData(rsvpForm);
             if (!formData.has("category")) {
                 formData.set("category", null)
@@ -288,6 +289,7 @@
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
                 }
+                submitBtn.disabled= false;
             })
         })
 
