@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
-        <div id="loadingBG" class="fixed z-30 top-0 h-screen w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
+    <div class="min-h-[100svh] min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
+        <div id="loadingBG" class="fixed z-30 top-0 h-[100svh] w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
         <div id="sliderContainer"
             class="fixed w-full max-w-lg h-full -z-10 bg-black top-0 left-0 lg:left-1/2 lg:-translate-x-1/2">
@@ -13,11 +13,11 @@
         </div>
 
 
-        <div id="scrollContainer" class="snap-mandatory snap-y h-screen max-h-screen w-screen max-w-lg overflow-y-auto overflow-x-hidden">
+        <div id="scrollContainer" class="snap-mandatory snap-y h-[100svh] max-h-[100svh] w-screen max-w-lg overflow-y-auto overflow-x-hidden">
             <div id="main"
-                class="flex flex-col relative min-h-screen w-full pt-20 pb-20 text-white px-8 font-inter snap-start">
+                class="flex flex-col relative min-h-[100svh] w-full pt-20 pb-20 text-white px-8 font-inter snap-start">
                 <div
-                    class="absolute w-full h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
+                    class="absolute w-full h-[100svh] max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
                 <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
                     class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
@@ -59,7 +59,7 @@
 
             </div>
             <form id="rsvpForm" method="POST" action="/participant/register"
-                class="relative min-h-screen w-full transition-all duration-1000 snap-start">
+                class="relative min-h-[100svh] w-full transition-all duration-1000 snap-start">
                 <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
                 @csrf()
                 @method('POST')
@@ -119,7 +119,7 @@
                 </div>
             </form>
             <div id="timeline"
-                class="min-h-screen w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
+                class="min-h-[100svh] w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center">
                 <div class="absolute top-0 left-0 h-full w-full -z-10 bg-black/50"></div>
                 <p class="font-bold text-4xl mt-4">
                     RUNDOWN

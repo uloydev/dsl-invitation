@@ -194,10 +194,10 @@ class ParticipantController extends Controller
         $participant->save();
 
         return redirect()->route('index')->with('alert', [
-            "title" => 'Terima kasih!',
-            "html" => '<p>Data peserta berhasil diverifikasi.</p><p>Silahkan cek email untuk bukti registrasi Anda.</p>',
-            "icon" => 'success',
-            "confirmButtonText" => 'Kembali'
+            "title" => 'Thank You !',
+            "html" => '<p>Your email has been confirmed <br/>See you at <b>The Unbox Day</b></p>',
+            "imageUrl"=> "/assets/icon/check.svg",
+            "confirmButtonText" => 'Close'
         ]);
     }
 
