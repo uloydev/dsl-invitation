@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-[100svh] min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
+    <div class="min-h-[100svh] max-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
         <div id="loadingBG" class="fixed z-30 top-0 h-[100svh] w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
         <div id="sliderContainer"
