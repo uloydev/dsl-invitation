@@ -21,6 +21,8 @@
                 </div>
                 <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
                     class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
+                <img id="unbox" src="/assets/img/unbox.png" alt="Unbox"
+                    class="w-12 absolute top-8 right-8 opacity-0 transition-all duration-1000 z-10">
                 <div id="headlineGroup"
                     class="flex-grow flex flex-col justify-between text-[2.4rem] font-bold opacity-0 transition-all duration-1000">
                     <div>
@@ -28,7 +30,7 @@
                         <p class="-mt-2">The Unbox Day</p>
                         <div class="-mt-3">
                             <span class="inline-block text-base bg-dsl-blue px-2 py-1"><span class="font-normal">Grand
-                                    Opening</span> Department
+                                    Opening of</span> Department
                                 Sports Lab</span>
                         </div>
                     </div>
@@ -45,8 +47,8 @@
                     <div class="flex gap-x-6 mt-12">
 
                         <a id="goToForm"
-                            class="flex-grow flex justify-center gap-x-3 text-lg items-center bg-dsl-blue py-5 rounded-full group hover:font-bold transition-all w-full">Unbox
-                            Your Potential <img src="/assets/icon/arrow.svg" alt="arrow"
+                            class="flex-grow flex justify-center gap-x-3 text-lg items-center bg-dsl-blue py-5 rounded-full group hover:font-bold transition-all w-full">RSVP
+                            NOW <img src="/assets/icon/arrow.svg" alt="arrow"
                                 class="w-3 rotate-90 group-hover:w-4 transition-all" /></a>
                         <a target="_blank" href="https://maps.app.goo.gl/3Xy8UNDd2qvwcWF37"
                             class="rounded-full p-5 bg-white hover:bg-[#c6c6c6] flex items-center justify-center group"><img
@@ -78,8 +80,7 @@
                                 <input type="text" name="phone" placeholder="Enter your phone number"
                                     class="block w-full py-6 rounded-2xl transition-all bg-white/10 border focus:border-2 border-[#ebebeb] focus:border-white text-white placeholder-white text-center focus:placeholder-transparent" />
                                 <button type="button" id="categoryBtn"
-                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border hover:border-2 border-[#ebebeb] hover:border-white text-white text-center">Category
-                                    ?</button>
+                                    class="block w-full py-6 rounded-2xl transition-all bg-white/10 border hover:border-2 border-[#ebebeb] hover:border-white text-white text-center">Category</button>
                                 <div id="categoryList"
                                     class="text-white px-4 bg-white/10 rounded-3xl border-[#ebebeb] text-center h-0 overflow-hidden transition-all duration-500">
                                     <div class="border-b border-[#ebebeb] py-4">
@@ -96,6 +97,11 @@
                                         <label for="categoryFamily">Family and Friends</label>
                                         <input class="hidden" type="radio" name="category" id="categoryFamily"
                                             value="Family and Friend" />
+                                    </div>
+                                    <div class="border-b border-[#ebebeb] py-4">
+                                        <label for="categoryPartner">Partner</label>
+                                        <input class="hidden" type="radio" name="category" id="categoryPartner"
+                                            value="Partner" />
                                     </div>
                                     <div class="py-4">
                                         <label for="categoryOthers">Others</label>
@@ -119,9 +125,9 @@
                     RUNDOWN
                 </p>
                 <div class="flex-grow h-full flex items-center">
-                    <div id="timelineImg"  class="h-full opacity-0 overflow-hidden transition-all duration-1000">
-                         <img src="/assets/img/timeline.png" alt="timeline"
-                        class="w-full object-center aspect-[9/16] px-4">
+                    <div id="timelineImg" class="h-full opacity-0 overflow-hidden transition-all duration-1000">
+                        <img src="/assets/img/timeline.png" alt="timeline"
+                            class="w-full object-center aspect-[9/16] px-4">
                     </div>
                 </div>
                 <a href="https://department.co.id" target="_blank">Department.co.id</p>
@@ -134,6 +140,7 @@
 @push('script')
     <script>
         const logo = document.getElementById("logo");
+        const unbox = document.getElementById("unbox");
         const loadingBG = document.getElementById("loadingBG");
         const headlineGroup = document.getElementById("headlineGroup");
         const registerBtnGroup = document.getElementById("registerBtnGroup");
@@ -172,8 +179,10 @@
                 logo.classList.remove("-translate-x-1/2", "-translate-y-1/2");
                 logo.classList.replace("top-1/2", "top-8");
                 logo.classList.replace("left-1/2", "left-8");
+                logo.classList.replace("w-20", "w-16");
                 loadingBG.classList.add("opacity-0");
                 setTimeout(() => {
+                    unbox.classList.remove("opacity-0")
                     logo.classList.replace("fixed", "absolute");
                     loadingBG.remove();
                     registerBtnGroup.classList.remove("opacity-0");
@@ -215,7 +224,6 @@
 
         const timelineInterval = setInterval(() => {
             if (isElementInViewport(timeline)) {
-                console.log(timelineImg);
                 timelineImg.classList.remove("opacity-0");
                 clearInterval(timelineInterval);
             }
@@ -259,6 +267,7 @@
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
                     rsvpForm.reset();
+                    categoryBtn.innerText = "Categpry";
                     return null
                 } else {
                     return res.json()
