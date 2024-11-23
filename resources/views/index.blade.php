@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-[100svh] max-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
+    <div class="min-h-[100svh] h-full max-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
         <div id="loadingBG" class="fixed z-30 top-0 h-[100svh] w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
         <div id="sliderContainer"
@@ -17,7 +17,7 @@
             <div id="main"
                 class="flex flex-col relative min-h-[100svh] w-full pt-20 text-white px-8 font-inter snap-start overflow-hidden">
                 <div
-                    class="absolute w-full h-[100vh] max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
+                    class="absolute w-full min-h-[100svh] h-full max-h-screen max-w-lg -z-10 left-0 lg:left-1/2 lg:-translate-x-1/2 top-0 bg-gradient-to-b from-black/50 via-transparent to-black/50">
                 </div>
                 <img id="logo" src="/assets/img/logo.svg" alt="Logo DSL"
                     class="w-20 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500 z-50">
@@ -60,7 +60,7 @@
             </div>
             <form id="rsvpForm" method="POST" action="/participant/register"
                 class="relative min-h-[100svh] w-full transition-all duration-1000 snap-start overflow-hidden">
-                <div class="absolute top-0 left-0 h-screen w-full -z-10 bg-black/50"></div>
+                <div class="absolute top-0 left-0 min-h-[100svh] h-full max-h-screen w-full -z-10 bg-black/50"></div>
                 @csrf()
                 @method('POST')
                 <div class="absolute w-full h-full z-20 px-8 flex flex-col justify-between pb-6">
@@ -120,7 +120,7 @@
             </form>
             <div id="timeline"
                 class="min-h-[100svh] w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center overflow-hidden">
-                <div class="absolute top-0 left-0 h-screen w-full -z-10 bg-black/50"></div>
+                <div class="absolute top-0 left-0 min-h-[100svh] h-full max-h-screen w-full -z-10 bg-black/50"></div>
                 <p class="font-bold text-4xl mt-4">
                     RUNDOWN
                 </p>
