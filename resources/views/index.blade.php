@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="min-h-[100svh] max-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
+    <div
+        class="min-h-[100svh] max-h-screen min-w-screen relative bg-transparent max-w-lg mx-auto overflow-x-hidden overflow-y-auto">
         <div id="loadingBG" class="fixed z-30 top-0 h-[100svh] w-screen max-w-lg bg-dsl-blue transition-all duration-700 ">
         </div>
         <div id="sliderContainer"
@@ -13,7 +14,8 @@
         </div>
 
 
-        <div id="scrollContainer" class="snap-mandatory snap-y h-[100svh] max-h-[100svh] w-screen max-w-lg overflow-y-auto overflow-x-hidden">
+        <div id="scrollContainer"
+            class="snap-mandatory snap-y h-[100svh] max-h-[100svh] w-screen max-w-lg overflow-y-auto overflow-x-hidden">
             <div id="main"
                 class="flex flex-col relative min-h-[100svh] w-full pt-20 text-white px-8 font-inter snap-start overflow-hidden">
                 <div
@@ -56,8 +58,23 @@
                                 class="w-8 group-hover:w-9 rotate-90 transition-all" /></a>
                     </div>
                 </div>
+            </div>
+
+            <div id="timeline"
+                class="min-h-[100svh] w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center overflow-hidden">
+                <div class="absolute top-0 left-0 min-h-[100svh] h-full max-h-screen w-full -z-10 bg-black/50"></div>
+                <p class="font-bold text-4xl mt-4">
+                    RUNDOWN
+                </p>
+                <div class="flex-grow h-full flex items-center">
+                    <div id="timelineImg" class="overflow-hidden transition-all duration-1000 px-8 h-[90%]">
+                        <img src="/assets/img/timeline.png" alt="timeline" class="w-full object-center aspect-[9/16]">
+                    </div>
+                </div>
+                <a href="https://department.co.id" target="_blank" class="mb-4">Department.co.id</p>
 
             </div>
+
             <form id="rsvpForm" method="POST" action="/participant/register"
                 class="relative min-h-[100svh] w-full transition-all duration-1000 snap-start overflow-hidden">
                 <div class="absolute top-0 left-0 min-h-[100svh] h-full max-h-screen w-full -z-10 bg-black/50"></div>
@@ -118,21 +135,6 @@
                         class=" block w-full rounded-2xl bg-[#cbcbcb] text-[#808080] py-6 hover:bg-dsl-blue hover:text-white transition-all mt-16 mb-4">SUBMIT</button>
                 </div>
             </form>
-            <div id="timeline"
-                class="min-h-[100svh] w-full snap-start flex flex-col items-center justify-between relative py-4 font-inter text-white text-center overflow-hidden">
-                <div class="absolute top-0 left-0 min-h-[100svh] h-full max-h-screen w-full -z-10 bg-black/50"></div>
-                <p class="font-bold text-4xl mt-4">
-                    RUNDOWN
-                </p>
-                <div class="flex-grow h-full flex items-center">
-                    <div id="timelineImg" class="overflow-hidden transition-all duration-1000 px-8 h-[90%]">
-                        <img src="/assets/img/timeline.png" alt="timeline"
-                            class="w-full object-center aspect-[9/16]">
-                    </div>
-                </div>
-                <a href="https://department.co.id" target="_blank" class="mb-4">Department.co.id</p>
-
-            </div>
         </div>
     </div>
 @endsection
@@ -253,7 +255,7 @@
         })
 
         submitBtn.addEventListener("click", () => {
-            submitBtn.disabled= true;
+            submitBtn.disabled = true;
             const formData = new FormData(rsvpForm);
             if (!formData.has("category")) {
                 formData.set("category", null)
@@ -289,7 +291,7 @@
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
                 }
-                submitBtn.disabled= false;
+                submitBtn.disabled = false;
             })
         })
 

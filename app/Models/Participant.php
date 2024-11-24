@@ -30,7 +30,7 @@ class Participant extends Model
 
     public function getParticipantNumberAttribute(): string
     {
-        return str_pad($this->id ?? "", 4, '0', STR_PAD_LEFT);
+        return str_pad($this->id ?? "", 3, '0', STR_PAD_LEFT);
     }
 
     // public function getCheckinAtAttribute()
