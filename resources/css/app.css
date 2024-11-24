@@ -26,3 +26,7 @@ html {
 .swal2-confirm {
     @apply py-4 bg-dsl-blue;
 }
+
+*::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Webkit-based browsers */
+  }

@@ -71,7 +71,7 @@
                         <img src="/assets/img/timeline.png" alt="timeline" class="w-full object-center aspect-[9/16]">
                     </div>
                 </div>
-                <a href="https://department.co.id" target="_blank" class="mb-4">Department.co.id</p>
+                <a href="https://department.co.id" target="_blank" class="mb-4">Department.co.id</a>
 
             </div>
 
@@ -269,8 +269,8 @@
             }).then((res) => {
                 if (res.ok) {
                     popup.fire({
-                        title: `<span class="font-inter font-bold text-[#040404]">Almost There!</span>`,
-                        html: `<div class="text-sm -mt-4"><p class="font-inter">You are Ready to <b>Unbox Your Potential</b></p><p class="font-inter">Please kindly <b>check your email for confirmation</b></p></div>`,
+                        title: `<span class="font-inter font-bold text-[#040404]">Thank you!</span>`,
+                        html: `<div class="text-sm -mt-4"><p class="font-inter">Check your email for <b>RSVP Number</b></p><p class="font-inter">Your submit valid for 1 person only and your data will be set for door prize and merchandise</p></div>`,
                         imageUrl: "/assets/icon/check.svg",
                         confirmButtonText: `<span class="font-inter">Close</span>`
                     });
