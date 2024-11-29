@@ -16,11 +16,13 @@ class Participant extends Model
         'phone',
         'category',
         'email_verified_at',
+        'checkin_at',
         'token',
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'checkin_at' => 'datetime',
     ];
 
     protected $hidden = [

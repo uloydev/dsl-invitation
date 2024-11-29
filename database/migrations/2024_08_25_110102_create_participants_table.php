@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone', 20);
             $table->string('category', 50);
             $table->dateTime('email_verified_at')->nullable();
+            $table->dateTime('checkin_at')->nullable();
             $table->timestamps();
         });
     }

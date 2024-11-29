@@ -247,13 +247,6 @@ class ParticipantController extends Controller
             ], 400);
         }
 
-        // check if not received kit
-        if (!$participant->kit_received_at) {
-            return response()->json([
-                'message' => 'Peserta belum menerima kit',
-            ], 400);
-        }
-
         $participant->checkin_at = Carbon::now();
         $participant->save();
 

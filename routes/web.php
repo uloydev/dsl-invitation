@@ -31,7 +31,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->controller(D
         Route::get('/', 'index')->name('index');
         // Route::get('/customer', 'customer')->name('customer');
         // Route::post('/{participant}/pickup-kit', 'pickupKit')->name('pickup-kit');
-        // Route::post('/{participant}/checkin', 'checkin')->name('checkin');
+        Route::post('/{participant}/check-in', 'checkin')->name('checkin');
     });
 
     // Route::get('/shirt', 'shirtIndex')->name('shirt.index');
