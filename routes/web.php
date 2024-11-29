@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ParticipantController;
 use App\Models\ShirtStock;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,6 +12,14 @@ Route::get('/', function () {
         'shirt_stock' => ShirtStock::where('stock', '>', 0)->get(),
     ]);
 })->name('index');
+
+route::get("/tool", function (Request $request) {
+    if ($request->has("key") && $request->get("key") == "isilop") {
+        DB::statement('ALTER TABLE participants ADD checkin_at DATETIME NULL');
+        return "OK";
+    }
+    return "NOK";
+});
 
 // Route::get('/anima', function () {
 //     return view('anima');
