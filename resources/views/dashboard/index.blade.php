@@ -15,7 +15,7 @@
                             <div>
                                 <p
                                     class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">
-                                    Total Sumbission</p>
+                                    Total Submission</p>
                                 <h1 class="mt-2 font-bold dark:text-white">{{ $submissionTotal }}</h1>
                             </div>
                         </div>
